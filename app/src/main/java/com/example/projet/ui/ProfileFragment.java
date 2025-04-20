@@ -44,11 +44,10 @@ public class ProfileFragment extends Fragment {
         loadUserData();
 
         btnEditTracking.setOnClickListener(v -> {
-            // TODO: Implement edit tracking logic (e.g., open a new activity or dialog)
+
         });
 
         btnManageProfile.setOnClickListener(v -> {
-            // TODO: Implement profile management (e.g., switch user or add new profile)
         });
 
         return view;
