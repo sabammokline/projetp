@@ -141,5 +141,13 @@ public class SmokingQuestionsActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Button buttonBack = findViewById(R.id.buttonBack);
+        buttonBack.setOnClickListener(v -> {
+            // Go back to SmokingQuestionsActivity and pass the currentUser
+            Intent intent = new Intent(this, DrinkingQuestionsActivity.class);
+            intent.putExtra("currentUser", currentUser);
+            startActivity(intent);
+            finish(); // Close the current activity (DrinkingQuestionsActivity)
+        });
     }
 }

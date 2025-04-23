@@ -139,34 +139,7 @@
             android:gravity="center_vertical"
             app:layout_constraintTop_toBottomOf="@id/postInputLayout">
 
-            <ImageButton
-                android:id="@+id/attachPhoto"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@android:drawable/ic_menu_gallery"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Attach photo"
-                app:tint="#4CAF50"/>
 
-            <ImageButton
-                android:id="@+id/attachVideo"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@android:drawable/ic_menu_camera"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Attach video"
-                android:layout_marginStart="16dp"
-                app:tint="#2196F3"/>
-
-            <ImageButton
-                android:id="@+id/attachPoll"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@android:drawable/ic_menu_sort_by_size"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Create poll"
-                android:layout_marginStart="16dp"
-                app:tint="#FF9800"/>
 
             <View
                 android:layout_width="0dp"
@@ -203,7 +176,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cancel"
-                android:textColor="#455A64"
+                android:textColor="@color/a5ther"
                 style="@style/Widget.MaterialComponents.Button.TextButton"/>
 
             <com.google.android.material.button.MaterialButton
@@ -214,7 +187,7 @@
                 android:text="Post"
                 android:textColor="#FFFFFF"
                 app:cornerRadius="20dp"
-                android:backgroundTint="#2E7D32"/>
+                android:backgroundTint="@color/a5ther"/>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -34,7 +34,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:background="#FF6F61"
+                    android:background="@color/a7mer"
                     android:padding="16dp">
 
                     <ImageView
@@ -49,7 +49,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="SMOKING TRACKER"
+                        android:text="Smoking Section"
                         android:textStyle="bold"
                         android:textSize="18sp"
                         android:textColor="#FFFFFF" />
@@ -78,10 +78,10 @@
                         android:id="@+id/lung_damage_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Your Lung Health"
+                        android:text="Lung Health"
                         android:textStyle="bold"
                         android:textSize="16sp"
-                        android:textColor="#333333"
+                        android:textColor="@color/a7mer"
                         android:layout_marginBottom="8dp" />
 
                     <ProgressBar
@@ -92,7 +92,7 @@
                         android:scaleY="3"
                         android:progress="70"
                         android:max="100"
-                        android:progressTint="#FF6F61"
+                        android:progressTint="@color/a7mer"
                         android:progressBackgroundTint="#E0E0E0"
                         android:layout_marginBottom="24dp" />
 
@@ -117,7 +117,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Time Remaining to Quit Goal"
                                 android:textStyle="bold"
-                                android:textColor="#333333"
+                                android:textColor="@color/a7mer"
                                 android:textSize="16sp"
                                 android:gravity="center"
                                 android:layout_marginBottom="12dp" />
@@ -141,7 +141,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="15"
-                                        android:textColor="#FF6F61"
+                                        android:textColor="@color/black"
                                         android:textSize="24sp"
                                         android:textStyle="bold" />
 
@@ -149,7 +149,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="days"
-                                        android:textColor="#666666"
+                                        android:textColor="@color/gray"
                                         android:textSize="14sp" />
                                 </LinearLayout>
 
@@ -170,7 +170,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="10"
-                                        android:textColor="#FF6F61"
+                                        android:textColor="@color/black"
                                         android:textSize="24sp"
                                         android:textStyle="bold" />
 
@@ -178,7 +178,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="hours"
-                                        android:textColor="#666666"
+                                        android:textColor="@color/gray"
                                         android:textSize="14sp" />
                                 </LinearLayout>
 
@@ -199,7 +199,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="25"
-                                        android:textColor="#FF6F61"
+                                        android:textColor="@color/black"
                                         android:textSize="24sp"
                                         android:textStyle="bold" />
 
@@ -207,7 +207,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="minutes"
-                                        android:textColor="#666666"
+                                        android:textColor="@color/gray"
                                         android:textSize="14sp" />
                                 </LinearLayout>
                             </LinearLayout>
@@ -220,7 +220,7 @@
                         android:text="Overall Progress"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textColor="#333333"
+                        android:textColor="@color/a7mer"
                         android:layout_marginBottom="16dp" />
 
                     <LinearLayout
@@ -249,7 +249,7 @@
                                 android:id="@+id/stat_days_tracked"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="15"
+                                android:text="0"
                                 android:textSize="18sp"
                                 android:textColor="#333333"
                                 android:textStyle="bold" />
@@ -258,7 +258,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="days tracked"
-                                android:textColor="#666666"
+                                android:textColor="@color/gray"
                                 android:textSize="12sp" />
                         </LinearLayout>
 
@@ -282,7 +282,7 @@
                                 android:id="@+id/stat_cigs_avoided"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="40"
+                                android:text="0"
                                 android:textSize="18sp"
                                 android:textColor="#333333"
                                 android:textStyle="bold" />
@@ -291,7 +291,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="avoided"
-                                android:textColor="#666666"
+                                android:textColor="@color/gray"
                                 android:textSize="12sp" />
                         </LinearLayout>
 
@@ -314,16 +314,16 @@
                                 android:id="@+id/stat_money_saved"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="$30"
+                                android:text="0Dt"
                                 android:textSize="18sp"
-                                android:textColor="#333333"
+                                android:textColor="@color/black"
                                 android:textStyle="bold" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="saved"
-                                android:textColor="#666666"
+                                android:textColor="@color/gray"
                                 android:textSize="12sp" />
                         </LinearLayout>
 
@@ -347,7 +347,7 @@
                                 android:id="@+id/stat_time_won"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="12h"
+                                android:text="0h"
                                 android:textSize="18sp"
                                 android:textColor="#333333"
                                 android:textStyle="bold" />
@@ -356,7 +356,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="won back"
-                                android:textColor="#666666"
+                                android:textColor="@color/gray"
                                 android:textSize="12sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -368,7 +368,7 @@
                         android:layout_height="wrap_content"
                         android:text="Daily Smoking Check-in"
                         android:textColor="#FFFFFF"
-                        app:backgroundTint="#FF6F61"
+                        app:backgroundTint="@color/a7mer"
                         app:cornerRadius="8dp"
                         android:padding="12dp" />
                 </LinearLayout>
@@ -394,7 +394,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:background="#4CAF50"
+                    android:background="@color/boni"
                     android:padding="16dp">
 
                     <ImageView
@@ -409,7 +409,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="DRINKING TRACKER"
+                        android:text="Drinking Section"
                         android:textStyle="bold"
                         android:textSize="18sp"
                         android:textColor="#FFFFFF" />
@@ -449,7 +449,7 @@
                         android:layout_height="16dp"
                         android:progress="50"
                         android:max="100"
-                        android:progressTint="#4CAF50"
+                        android:progressTint="@color/boni"
                         android:progressBackgroundTint="#E0E0E0"
                         android:layout_marginBottom="24dp" />
 
@@ -474,23 +474,23 @@
                                 android:layout_width="32dp"
                                 android:layout_height="32dp"
                                 android:src="@drawable/calendar"
-                                app:tint="#4CAF50"
+                                app:tint="@color/black"
                                 android:contentDescription="Calendar icon" />
 
                             <TextView
                                 android:id="@+id/drink_days_tracked"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="7"
+                                android:text="0"
                                 android:textSize="18sp"
-                                android:textColor="#333333"
+                                android:textColor="@color/black"
                                 android:textStyle="bold" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="days tracked"
-                                android:textColor="#666666"
+                                android:textColor="@color/gray"
                                 android:textSize="12sp" />
                         </LinearLayout>
 
@@ -507,14 +507,14 @@
                                 android:layout_width="32dp"
                                 android:layout_height="32dp"
                                 android:src="@drawable/bottle"
-                                app:tint="#4CAF50"
+                                app:tint="@color/black"
                                 android:contentDescription="Drink icon" />
 
                             <TextView
                                 android:id="@+id/drinks_avoided"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="12"
+                                android:text="0"
                                 android:textSize="18sp"
                                 android:textColor="#333333"
                                 android:textStyle="bold" />
@@ -523,7 +523,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="drinks avoided"
-                                android:textColor="#666666"
+                                android:textColor="@color/gray"
                                 android:textSize="12sp" />
                         </LinearLayout>
 
@@ -540,14 +540,14 @@
                                 android:layout_width="32dp"
                                 android:layout_height="32dp"
                                 android:src="@drawable/money"
-                                app:tint="#4CAF50"
+                                app:tint="@color/black"
                                 android:contentDescription="Wallet icon" />
 
                             <TextView
                                 android:id="@+id/drink_money_saved"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="$48"
+                                android:text="0Dt"
                                 android:textSize="18sp"
                                 android:textColor="#333333"
                                 android:textStyle="bold" />
@@ -556,7 +556,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="saved"
-                                android:textColor="#666666"
+                                android:textColor="@color/gray"
                                 android:textSize="12sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -568,7 +568,7 @@
                         android:layout_height="wrap_content"
                         android:text="Daily Drinking Check-in"
                         android:textColor="#FFFFFF"
-                        android:backgroundTint="#4CAF50"
+                        android:backgroundTint="@color/boni"
                         app:cornerRadius="8dp"
                         android:padding="12dp" />
                 </LinearLayout>
@@ -594,7 +594,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:background="#3F51B5"
+                    android:background="@color/bonifete7"
                     android:padding="16dp">
 
                     <ImageView
@@ -609,7 +609,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="WEIGHT TRACKER"
+                        android:text="Weight Section"
                         android:textStyle="bold"
                         android:textSize="18sp"
                         android:textColor="#FFFFFF" />
@@ -637,7 +637,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:cardCornerRadius="8dp"
-                        app:cardBackgroundColor="#EEF2FF"
+                        app:cardBackgroundColor="@color/bonifetfet"
                         app:cardElevation="2dp"
                         android:layout_marginBottom="20dp">
 
@@ -653,23 +653,23 @@
                                 android:layout_height="wrap_content"
                                 android:text="Daily Calories Target"
                                 android:textSize="14sp"
-                                android:textColor="#666666" />
+                                android:textColor="@color/gray" />
 
                             <TextView
                                 android:id="@+id/calories_needed"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="2,350"
+                                android:text="0"
                                 android:textSize="28sp"
                                 android:textStyle="bold"
-                                android:textColor="#3F51B5" />
+                                android:textColor="@color/bonifete7" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="calories per day"
                                 android:textSize="14sp"
-                                android:textColor="#666666" />
+                                android:textColor="@color/gray" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 
@@ -679,20 +679,12 @@
                         android:layout_height="wrap_content"
                         android:text="Your Weight Progress"
                         android:textStyle="bold"
+                        android:layout_gravity="center_horizontal"
                         android:textSize="16sp"
-                        android:textColor="#333333"
+                        android:textColor="@color/bonifete7"
                         android:layout_marginBottom="8dp" />
 
-                    <ProgressBar
-                        android:id="@+id/weight_progress_bar"
-                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="16dp"
-                        android:progress="40"
-                        android:max="100"
-                        android:progressTint="#3F51B5"
-                        android:progressBackgroundTint="#E0E0E0"
-                        android:layout_marginBottom="24dp" />
+
 
                     <!-- Weight Stats -->
                     <LinearLayout
@@ -731,7 +723,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="starting lbs"
-                                    android:textColor="#666666"
+                                    android:textColor="@color/gray"
                                     android:textSize="12sp" />
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
@@ -744,7 +736,7 @@
                             android:layout_margin="4dp"
                             app:cardCornerRadius="8dp"
                             app:cardElevation="2dp"
-                            app:cardBackgroundColor="#EEF2FF">
+                            app:cardBackgroundColor="@color/bonifetfet">
 
                             <LinearLayout
                                 android:orientation="vertical"
@@ -759,14 +751,14 @@
                                     android:layout_height="wrap_content"
                                     android:text="172"
                                     android:textSize="24sp"
-                                    android:textColor="#3F51B5"
+                                    android:textColor="@color/boni"
                                     android:textStyle="bold" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="current lbs"
-                                    android:textColor="#666666"
+                                    android:textColor="@color/gray"
                                     android:textSize="12sp" />
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
@@ -793,14 +785,14 @@
                                     android:layout_height="wrap_content"
                                     android:text="150"
                                     android:textSize="20sp"
-                                    android:textColor="#333333"
+                                    android:textColor="@color/black"
                                     android:textStyle="bold" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="goal lbs"
-                                    android:textColor="#666666"
+                                    android:textColor="@color/gray"
                                     android:textSize="12sp" />
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
@@ -813,7 +805,7 @@
                         android:layout_height="wrap_content"
                         android:text="Daily Weight Check-in"
                         android:textColor="#FFFFFF"
-                        android:backgroundTint="#3F51B5"
+                        android:backgroundTint="@color/bonifete7"
                         app:cornerRadius="8dp"
                         android:padding="12dp" />
                 </LinearLayout>

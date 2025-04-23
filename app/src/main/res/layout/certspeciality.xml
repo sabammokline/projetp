@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="Please enter your professional details"
-                android:textColor="#78909C"
+                android:textColor="@color/azre98ame9"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +57,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Certificate Code"
-                        android:textColor="#455A64"
+                        android:textColor="@color/azre9"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -84,7 +84,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
                         android:text="Medical Specialty"
-                        android:textColor="#455A64"
+                        android:textColor="@color/azre9"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -118,7 +118,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginTop="32dp"
-                android:backgroundTint="#0D47A1"
+                android:backgroundTint="@color/azre98ame9"
                 android:text="Finish"
                 android:textSize="16sp"
                 app:cornerRadius="8dp"

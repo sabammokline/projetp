@@ -13,6 +13,8 @@ import com.example.projet.R;
 import com.example.projet.chat.GeneralChatActivity;
 import com.example.projet.chat.PrivateChatActivity;
 import com.example.projet.chat.BotChatActivity;
+import com.example.projet.chat.SelectContactActivity;
+
 
 public class MessageFragment extends Fragment {
 
@@ -33,8 +35,9 @@ public class MessageFragment extends Fragment {
         });
 
         privateButton.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), PrivateChatActivity.class);
+            Intent intent = new Intent(getActivity(), SelectContactActivity.class);
             startActivity(intent);
+
         });
 
         chatWithBotButton.setOnClickListener(v -> {

@@ -13,7 +13,7 @@ public class User extends Login  {
     @PrimaryKey(autoGenerate = true)
     private long id;
 
-    private String birthdate;
+    private int age;
     private Boolean smoking;
     private int cigarettesPerPack;
 
@@ -56,12 +56,12 @@ public class User extends Login  {
         this.id = id;
     }
 
-    public String getBirthdate() {
-        return birthdate;
+    public int getAge() {
+        return age;
     }
 
-    public void setBirthdate(String birthdate) {
-        this.birthdate = birthdate;
+    public void setAge(int birthdate) {
+        this.age = age;
     }
 
     public Boolean getSmoking() {
@@ -252,7 +252,7 @@ public class User extends Login  {
 
                 // Fields from User class
                 ", id=" + id +
-                ", birthdate='" + birthdate + '\'' +
+                ", birthdate='" + age + '\'' +
                 ", smoking=" + smoking +
                 ", cigarettesPerPack=" + cigarettesPerPack +
                 ", packsPerDay=" + packsPerDay +

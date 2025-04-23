@@ -6,13 +6,13 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "post_table")
 public class Post {
     @PrimaryKey(autoGenerate = true)
-    public int id;
-    public int userId;
+    public long id;
+    public long userId;
     public String username;
     public String content;
     public String date;
 
-    public Post(int userId, String username, String content, String date) {
+    public Post(long userId, String username, String content, String date) {
         this.userId = userId;
         this.username = username;
         this.content = content;
@@ -21,11 +21,11 @@ public class Post {
     public Post() {}
 
     // Getters
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 
@@ -42,11 +42,11 @@ public class Post {
     }
 
     // Setters
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 

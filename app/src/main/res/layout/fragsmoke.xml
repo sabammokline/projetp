@@ -103,7 +103,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:hint="Enter number"
-                    android:drawableStart="@drawable/ic_smoking"
+                    android:drawableStart="@drawable/ic_smoke"
                     android:drawablePadding="8dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -116,7 +116,6 @@
                 android:layout_marginTop="16dp"
                 android:padding="12dp"
                 app:cornerRadius="8dp"
-                app:icon="@drawable/ic_save"
                 app:iconGravity="textStart" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

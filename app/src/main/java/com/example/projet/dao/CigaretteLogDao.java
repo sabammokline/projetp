@@ -3,6 +3,7 @@ package com.example.projet.dao;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.example.projet.database.CigaretteLog;
 
@@ -10,6 +11,8 @@ import java.util.List;
 
 @Dao
 public interface CigaretteLogDao {
+    @Update
+    void update(CigaretteLog log);
     @Insert
     void insert(CigaretteLog log);
 

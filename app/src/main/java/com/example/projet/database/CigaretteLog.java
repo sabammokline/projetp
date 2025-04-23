@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey;
 public class CigaretteLog {
 
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    private long id;
 
     private long userId;
 
@@ -19,11 +19,11 @@ public class CigaretteLog {
 
     // Getters and Setters
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -31,7 +31,7 @@ public class CigaretteLog {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 

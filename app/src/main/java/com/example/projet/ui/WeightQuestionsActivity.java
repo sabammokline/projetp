@@ -123,5 +123,13 @@ public class WeightQuestionsActivity extends Activity {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         });
+        Button buttonBack = findViewById(R.id.buttonBack);
+        buttonBack.setOnClickListener(v -> {
+            // Go back to SmokingQuestionsActivity and pass the currentUser
+            Intent intent = new Intent(this, DrinkingQuestionsActivity.class);
+            intent.putExtra("currentUser", currentUser);
+            startActivity(intent);
+            finish(); // Close the current activity (DrinkingQuestionsActivity)
+        });
     }
 }

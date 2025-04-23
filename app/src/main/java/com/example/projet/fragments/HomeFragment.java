@@ -164,15 +164,11 @@ public class HomeFragment extends Fragment {
     }
 
     private void setupWeightSection(View view) {
-        ProgressBar weightProgressBar = view.findViewById(R.id.weight_progress_bar);
         TextView caloriesNeeded = view.findViewById(R.id.calories_needed);
         TextView startingWeight = view.findViewById(R.id.starting_weight);
         TextView currentWeight = view.findViewById(R.id.current_weight);
         TextView goalWeight = view.findViewById(R.id.goal_weight);
         Button btnDailyCheck = view.findViewById(R.id.btn_weight_daily_check);
-
-        // Set weight progress (example - adjust according to your User class)
-        weightProgressBar.setProgress(user.getWeightProgressPercent());
 
         // Set weight stats
         caloriesNeeded.setText(user.getDailyCalories() + " Calories/Day");
