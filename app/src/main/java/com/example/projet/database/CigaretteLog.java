@@ -10,7 +10,7 @@ public class CigaretteLog {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    private int userId;
+    private long userId;
 
     @NonNull
     private String date;  // format: yyyy-MM-dd
@@ -27,7 +27,7 @@ public class CigaretteLog {
         this.id = id;
     }
 
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 

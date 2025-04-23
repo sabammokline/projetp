@@ -10,7 +10,7 @@ public class WeightLog {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    private int userId;
+    private long userId;
 
     @NonNull
     private String date;  // format: yyyy-MM-dd
@@ -27,11 +27,11 @@ public class WeightLog {
         this.id = id;
     }
 
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 

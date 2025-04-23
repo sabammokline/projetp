@@ -14,8 +14,8 @@ public interface CigaretteLogDao {
     void insert(CigaretteLog log);
 
     @Query("SELECT * FROM cigarette_log WHERE userId = :userId AND date = :date")
-    CigaretteLog getLogForDate(int userId, String date);
+    CigaretteLog getLogForDate(long userId, String date);
 
     @Query("SELECT * FROM cigarette_log WHERE userId = :userId")
-    List<CigaretteLog> getAllLogsForUser(int userId);
+    List<CigaretteLog> getAllLogsForUser(long userId);
 }

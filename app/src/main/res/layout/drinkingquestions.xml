@@ -1,83 +1,260 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F7F9FC"
     android:fillViewport="true">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="24dp">
 
-        <!-- Do you drink? -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Do you drink?"
-            android:textStyle="bold"
-            android:textSize="24sp"
-            android:layout_marginBottom="16dp" />
-
-        <RadioGroup
-            android:id="@+id/radioGroupDoYouDrink"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/radioDrinkYes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Yes" />
-
-            <RadioButton
-                android:id="@+id/radioDrinkNo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="No" />
-        </RadioGroup>
-
-        <!-- Drinking Questions Layout (Initially hidden) -->
-        <LinearLayout
-            android:id="@+id/drinkingQuestionsLayout"
-            android:orientation="vertical"
+        <!-- Progress Indicator -->
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progressIndicator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone">
+            android:progress="33"
+            app:indicatorColor="#4CAF50"
+            app:trackColor="#E0E0E0"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-            <!-- Bottles per day -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="How many bottles per day?" />
-
-            <NumberPicker
-                android:id="@+id/numberPickerBottlesPerDay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <!-- Cost per bottle -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="How much does one bottle cost?" />
-
-            <EditText
-                android:id="@+id/editBottleCost"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:hint="e.g. 2.5" />
-        </LinearLayout>
-
-        <!-- Next Button -->
-        <Button
-            android:id="@+id/buttonNextDrink"
+        <TextView
+            android:id="@+id/textProgress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Next"
-            android:layout_marginTop="24dp" />
-    </LinearLayout>
+            android:text="Question 1 of 3"
+            android:textColor="#757575"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@id/progressIndicator"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Survey Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:layout_constraintTop_toBottomOf="@id/textProgress"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <!-- Main Question -->
+                <TextView
+                    android:id="@+id/textQuestionTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Do you drink alcohol?"
+                    android:textStyle="bold"
+                    android:textSize="22sp"
+                    android:textColor="#263238"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/textQuestionDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="This helps us understand your habits better"
+                    android:textSize="16sp"
+                    android:textColor="#546E7A"
+                    android:layout_marginBottom="24dp" />
+
+                <!-- Yes/No Selection -->
+                <RadioGroup
+                    android:id="@+id/radioGroupDoYouDrink"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+
+                        <RadioButton
+                            android:id="@+id/radioDrinkYes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Yes"
+                            android:textSize="16sp"
+                            android:padding="16dp"
+                            android:button="@null"
+                            android:drawableEnd="?android:attr/listChoiceIndicatorSingle" />
+
+
+                        <RadioButton
+                            android:id="@+id/radioDrinkNo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No"
+                            android:textSize="16sp"
+                            android:padding="16dp"
+                            android:button="@null"
+                            android:drawableEnd="?android:attr/listChoiceIndicatorSingle" />
+                </RadioGroup>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Additional Questions Card (Initially hidden) -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/drinkingQuestionsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/cardQuestion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Drinking Details"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="#263238"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Bottles per day -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="How many drinks per day?"
+                    android:textColor="#546E7A"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="24dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_drink"
+                        app:tint="#78909C"
+                        android:layout_marginEnd="12dp" />
+
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/sliderBottlesPerDay"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:valueFrom="0"
+                        android:valueTo="10"
+                        android:stepSize="1"
+                        app:thumbColor="#4CAF50"
+                        app:trackColorActive="#4CAF50"
+                        app:trackColorInactive="#E0E0E0" />
+
+                    <TextView
+                        android:id="@+id/textBottleCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#4CAF50"
+                        android:layout_marginStart="16dp" />
+                </LinearLayout>
+
+                <!-- Cost per bottle -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Average cost per drink"
+                    android:textColor="#546E7A"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:hint="Enter amount"
+                    app:startIconTint="#78909C"
+                    app:prefixText="$">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editBottleCost"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Estimated daily spending -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Estimated daily spending:"
+                    android:textColor="#546E7A"
+                    android:textSize="14sp"
+                    android:layout_marginTop="16dp" />
+
+                <TextView
+                    android:id="@+id/textEstimatedSpending"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="$0.00"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#FF5722" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Action Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/drinkingQuestionsLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="1.0">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonBack"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="Back"
+                android:textSize="16sp"
+                android:layout_marginEnd="8dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonNextDrink"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="Next"
+                android:textSize="16sp"
+                android:backgroundTint="#4CAF50"
+                app:iconGravity="textEnd" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

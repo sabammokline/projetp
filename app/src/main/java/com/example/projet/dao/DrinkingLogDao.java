@@ -18,11 +18,11 @@ public interface DrinkingLogDao {
 
     // Get all drinking logs for a specific user
     @Query("SELECT * FROM drinking_log WHERE userId = :userId ORDER BY date DESC")
-    LiveData<List<DrinkingLog>> getAllDrinkingLogsForUser(int userId);
+    LiveData<List<DrinkingLog>> getAllDrinkingLogsForUser(long userId);
 
     // Delete all drinking logs for a specific user
     @Query("DELETE FROM drinking_log WHERE userId = :userId")
-    void deleteAllLogsForUser(int userId);
+    void deleteAllLogsForUser(long userId);
 
     // Delete a specific log by its ID
     @Query("DELETE FROM drinking_log WHERE id = :logId")

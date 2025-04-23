@@ -7,22 +7,22 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.example.projet.dao.CigaretteLogDao;
+import com.example.projet.dao.PostDao;
 import com.example.projet.dao.UserDao;
-import com.example.projet.dao.CoachDao;
-import com.example.projet.dao.MedecinDao;
 import com.example.projet.dao.DrinkingLogDao;
 import com.example.projet.dao.WeightLogDao;
 
 
-@Database(entities = {User.class, Coach.class, Medecin.class,CigaretteLog.class,DrinkingLog.class,WeightLog.class}, version = 4)
+@Database(entities = {User.class, CigaretteLog.class,
+        DrinkingLog.class,WeightLog.class,Post.class}, version = 10)
 public abstract class database extends RoomDatabase {
 
     private static volatile database INSTANCE;
 
     public abstract CigaretteLogDao cigaretteLogDao();
     public abstract UserDao userDao();
-    public abstract CoachDao coachDao();
-    public abstract MedecinDao medecinDao();
+
+    public  abstract PostDao postDao();
     // DAO for DrinkingLog
     public abstract DrinkingLogDao drinkingLogDao();
 

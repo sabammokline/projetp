@@ -29,6 +29,9 @@
         <activity android:name=".ui.SmokingQuestionsActivity" />
         <activity android:name=".ui.DrinkingQuestionsActivity" />
         <activity android:name=".ui.WeightQuestionsActivity" />
+        <activity android:name=".chat.GeneralChatActivity" />
+        <activity android:name=".chat.PrivateChatActivity" />
+        <activity android:name=".chat.BotChatActivity" />
     </application>
 
 </manifest>

@@ -19,11 +19,11 @@ public interface WeightLogDao {
 
     // Get all weight logs for a specific user
     @Query("SELECT * FROM weight_log WHERE userId = :userId ORDER BY date DESC")
-    LiveData<List<WeightLog>> getAllWeightLogsForUser(int userId);
+    LiveData<List<WeightLog>> getAllWeightLogsForUser(long userId);
 
     // Delete all weight logs for a specific user
     @Query("DELETE FROM weight_log WHERE userId = :userId")
-    void deleteAllLogsForUser(int userId);
+    void deleteAllLogsForUser(long userId);
 
     // Delete a specific log by its ID
     @Query("DELETE FROM weight_log WHERE id = :logId")

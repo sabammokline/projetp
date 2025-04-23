@@ -44,6 +44,9 @@ dependencies {
     // Room compiler for annotation processing
     annotationProcessor 'androidx.room:room-compiler:2.6.1'
 
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+
     // Optional: Room KTX (for coroutines and additional utilities)
     implementation 'androidx.room:room-ktx:2.6.1'
 }

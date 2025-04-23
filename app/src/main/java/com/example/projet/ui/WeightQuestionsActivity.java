@@ -2,6 +2,7 @@ package com.example.projet.ui;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
@@ -13,16 +14,20 @@ import com.example.projet.R;
 import com.example.projet.database.User;
 import com.example.projet.database.database;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class WeightQuestionsActivity extends Activity {
 
     private RadioGroup radioGroupDoYouTrackWeight, radioGroupWeightType, radioGroupGender;
     private RadioButton radioTrackYes, radioTrackNo;
     private LinearLayout weightQuestionsLayout;
-    private EditText editAge, editHeight, editWeight, editExerciseFrequency;
+    private EditText editAge, editHeight, editWeight, editGoalWeight, editExerciseFrequency;
     private Button buttonFinish;
 
     private User currentUser;
     private database db;
+    private final ExecutorService executor = Executors.newSingleThreadExecutor();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +43,11 @@ public class WeightQuestionsActivity extends Activity {
         editAge = findViewById(R.id.editAge);
         editHeight = findViewById(R.id.editHeight);
         editWeight = findViewById(R.id.editWeight);
+        editGoalWeight = findViewById(R.id.editGoalWeight); // New field
         editExerciseFrequency = findViewById(R.id.editExerciseFrequency);
         buttonFinish = findViewById(R.id.buttonFinish);
 
-        db = Room.databaseBuilder(getApplicationContext(), database.class, "health-db")
-                .allowMainThreadQueries()
-                .fallbackToDestructiveMigration()
-                .build();
+        db = database.getInstance(getApplicationContext());
 
         currentUser = (User) getIntent().getSerializableExtra("currentUser");
 
@@ -68,19 +71,21 @@ public class WeightQuestionsActivity extends Activity {
                 String ageStr = editAge.getText().toString().trim();
                 String heightStr = editHeight.getText().toString().trim();
                 String weightStr = editWeight.getText().toString().trim();
+                String goalWeightStr = editGoalWeight.getText().toString().trim(); // New field
                 String exerciseStr = editExerciseFrequency.getText().toString().trim();
 
-                if (ageStr.isEmpty() || heightStr.isEmpty() || weightStr.isEmpty() || exerciseStr.isEmpty()
-                        || radioGroupWeightType.getCheckedRadioButtonId() == -1
-                        || radioGroupGender.getCheckedRadioButtonId() == -1) {
+                if (ageStr.isEmpty() || heightStr.isEmpty() || weightStr.isEmpty() ||
+                        goalWeightStr.isEmpty() || exerciseStr.isEmpty() || // Added goal weight check
+                        radioGroupWeightType.getCheckedRadioButtonId() == -1 ||
+                        radioGroupGender.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(this, "Please fill in all the fields.", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 currentUser.setTrackWeight(true);
-                currentUser.setAge(Integer.parseInt(ageStr));
                 currentUser.setHeight(Double.parseDouble(heightStr));
                 currentUser.setWeight(Double.parseDouble(weightStr));
+                currentUser.setGoalweight(Double.parseDouble(goalWeightStr)); // New field
                 currentUser.setWeeklyActivities(Integer.parseInt(exerciseStr));
 
                 int selectedWeightTypeId = radioGroupWeightType.getCheckedRadioButtonId();
@@ -93,10 +98,29 @@ public class WeightQuestionsActivity extends Activity {
                 currentUser.setTrackWeight(false);
             }
 
-            db.userDao().update(currentUser);
+            executor.execute(() -> {
+                // Background thread work
+                long insertedId = db.userDao().insert(currentUser);
 
-            Intent intent = new Intent(WeightQuestionsActivity.this, MainActivity.class); // or SummaryActivity etc.
-            intent.putExtra("currentUser", currentUser);
+                SharedPreferences sharedPreferences = getSharedPreferences("UserPreferences", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putLong("userId", insertedId);
+                editor.apply(); // Or use editor.commit() for immediate write
+
+                // Update UI (must run on UI thread)
+                runOnUiThread(() -> {
+                    Toast.makeText(getApplicationContext(), "Insert done", Toast.LENGTH_SHORT).show();
+                });
+            });
+
+            SharedPreferences sharedPreferences = getSharedPreferences("UserPreferences", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean("isProfileCreated", true); // Set to true
+            editor.apply(); // Or use editor.commit() for immediate write
+
+
+            Intent intent = new Intent(WeightQuestionsActivity.this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         });
     }

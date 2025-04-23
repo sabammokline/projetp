@@ -11,7 +11,7 @@ import com.example.projet.entities.Login;
 @Entity(tableName = "user_table")
 public class User extends Login  {
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    private long id;
 
     private String birthdate;
     private Boolean smoking;
@@ -29,19 +29,30 @@ public class User extends Login  {
 
 
     private double weight;
+
+    private double goalweight;
     private double height;
 
-    private int age;
     private String gender;
 
     private String status;
     private int weeklyActivities;
+    private String password;
 
-    public int getId() {
+    public void setPassword(String password)
+    {
+        this.password = password;
+    }
+
+    public String getPassword(){
+        return password;}
+
+
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -132,14 +143,6 @@ public class User extends Login  {
     public void setTrackWeight(Boolean TrackWeight) {
         this.trackWeight = TrackWeight;
     }
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
 
     public double getWeight() {
         return weight;
@@ -147,6 +150,13 @@ public class User extends Login  {
 
     public void setWeight(double weight) {
         this.weight = weight;
+    }
+    public double getGoalweight() {
+        return goalweight;
+    }
+
+    public void setGoalweight(double goalweight) {
+        this.goalweight = goalweight;
     }
 
     public double getHeight() {
@@ -179,5 +189,92 @@ public class User extends Login  {
     public void setStatus(String Status) {
         this.status = Status;
     }
+
+    public int getDailyCalories(){
+        return 0;
+
+    }
+    public int getWeightProgressPercent(){
+        return 0;
+
+    }
+    public int getKidneyHealthPercent(){
+        return 0;
+
+    }
+    public int getDrinkingDaysTracked(){
+        return 0;
+
+    }
+    public int getDrinksAvoided(){
+        return 0;
+
+    }
+    public int getDrinkingMoneySaved(){
+        return 0;
+
+    }
+    public int getLungDamagePercent(){
+        return 0;
+
+    }
+    public int getTimeWon(){
+        return 0;
+
+    }
+    public int getMoneySaved(){
+        return 0;
+
+    }
+    public int getCigarettesAvoided(){
+        return 0;
+
+    }
+    public int getQuitTime(){
+        return 0;
+
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                // Fields from Login class
+                "nom='" + getNom() + '\'' +
+                ", prenom='" + getPrenom() + '\'' +
+                ", email='" + getEmail() + '\'' +
+                ", numTel='" + getNumTel() + '\'' +
+                ", userName='" + getUserName() + '\'' +
+                ", user=" + getUser() +
+                ", coach=" + getCoach() +
+                ", medecin=" + getMedecin() +
+                ", numCertificate='" + getNumCertificate() + '\'' +
+                ", specialty='" + getSpecialty() + '\'' +
+
+                // Fields from User class
+                ", id=" + id +
+                ", birthdate='" + birthdate + '\'' +
+                ", smoking=" + smoking +
+                ", cigarettesPerPack=" + cigarettesPerPack +
+                ", packsPerDay=" + packsPerDay +
+                ", cigaretteCost=" + cigaretteCost +
+                ", debutDate='" + debutDate + '\'' +
+                ", quitDate='" + quitDate + '\'' +
+                ", drinking=" + drinking +
+                ", bottlesPerWeek=" + bottlesPerWeek +
+                ", bottleCost=" + bottleCost +
+                ", trackWeight=" + trackWeight +
+                ", weight=" + weight +
+                ", goalweight=" + goalweight +
+                ", height=" + height +
+                ", gender='" + gender + '\'' +
+                ", status='" + status + '\'' +
+                ", weeklyActivities=" + weeklyActivities +
+                ", password='" + password + '\'' +
+                '}';
+    }
+
+
+
+
 }
 

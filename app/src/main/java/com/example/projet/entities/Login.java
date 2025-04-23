@@ -3,17 +3,34 @@ package com.example.projet.entities;
 import java.io.Serializable;
 
 public class Login implements Serializable {
-    private String nom;
-    private String prenom;
-    private String email;
-    private String numTel;
-    private String userName;
+    protected String nom;
+    protected String prenom;
+    protected String email;
+    protected String numTel;
+    protected String userName;
 
-    private boolean user;
-    private boolean coach;
-    private boolean medecin;
+    protected boolean user;
+    protected boolean coach;
+    protected boolean medecin;
+    protected String numCertificate;
+    protected String specialty;
 
     // Getters and Setters
+
+    public void setNumCertificate(String  NumCertificate) {
+        this.numCertificate = NumCertificate;
+    }
+
+    public String getNumCertificate() {
+        return numCertificate;
+    }
+    public void setSpecialty(String specialty) {
+        this.specialty = specialty;
+    }
+
+    public String getSpecialty() {
+        return specialty;
+    }
     public String getNom() {
         return nom;
     }
@@ -54,7 +71,7 @@ public class Login implements Serializable {
         this.userName = userName;
     }
 
-    public boolean isUser() {
+    public boolean getUser() {
         return user;
     }
 
@@ -62,7 +79,7 @@ public class Login implements Serializable {
         this.user = user;
     }
 
-    public boolean isCoach() {
+    public boolean getCoach() {
         return coach;
     }
 
@@ -70,7 +87,7 @@ public class Login implements Serializable {
         this.coach = coach;
     }
 
-    public boolean isMedecin() {
+    public boolean getMedecin() {
         return medecin;
     }
 

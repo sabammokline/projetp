@@ -3,6 +3,7 @@ package com.example.projet.ui;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
@@ -125,8 +126,6 @@ public class SmokingQuestionsActivity extends AppCompatActivity {
                 currentUser.setQuitDate(quitDate);
                 currentUser.setDebutDate(debutDate);  // Set debut date
 
-                // Update the User record in the database
-                db.userDao().update(currentUser);
 
                 // Move to the next activity (e.g., DrinkingQuestionsActivity)
                 Intent intent = new Intent(SmokingQuestionsActivity.this, DrinkingQuestionsActivity.class);

@@ -1,4 +1,4 @@
-package com.example.projet.ui;
+package com.example.projet.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -56,7 +56,7 @@ public class ProfileFragment extends Fragment {
     private void loadUserData() {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(() -> {
-            User user = db.userDao().getFirstUser();
+            User user = db.userDao().getUserById(1);
 
             if (user != null) {
                 requireActivity().runOnUiThread(() -> {
