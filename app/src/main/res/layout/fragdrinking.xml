@@ -28,9 +28,9 @@
                 android:id="@+id/titleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cigarette Tracker"
+                android:text="Drinks Tracker"
                 android:textSize="26sp"
-                android:textColor="@color/a7mer"
+                android:textColor="@color/boni"
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal" />
 
@@ -58,7 +58,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/smokeChart"
+            android:id="@+id/drinkingChart"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:layout_margin="8dp"
@@ -97,7 +97,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <EditText
-                    android:id="@+id/cigaretteInput"
+                    android:id="@+id/bottlesInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -111,10 +111,10 @@
                 android:layout_height="wrap_content"
                 android:text="Save Log"
                 android:textSize="16sp"
+                android:backgroundTint="@color/boni"
                 android:layout_marginTop="16dp"
                 android:padding="12dp"
                 app:cornerRadius="8dp"
-                android:backgroundTint="@color/a7mer"
                 app:iconGravity="textStart" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

@@ -3,10 +3,17 @@ package com.example.projet.ui;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowInsets;
+import android.view.WindowInsetsController;
+import android.view.WindowManager;
 import android.widget.*;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.room.Room;
 
 import com.example.projet.MainActivity;
@@ -17,13 +24,13 @@ import com.example.projet.database.database;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class WeightQuestionsActivity extends Activity {
+public class WeightQuestionsActivity extends AppCompatActivity {
 
     private RadioGroup radioGroupDoYouTrackWeight, radioGroupWeightType, radioGroupGender;
     private RadioButton radioTrackYes, radioTrackNo;
     private LinearLayout weightQuestionsLayout;
     private EditText editAge, editHeight, editWeight, editGoalWeight, editExerciseFrequency;
-    private Button buttonFinish;
+    private Button buttonNext;
 
     private User currentUser;
     private database db;
@@ -33,6 +40,11 @@ public class WeightQuestionsActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.weightquestions);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+
+
 
         radioGroupDoYouTrackWeight = findViewById(R.id.radioGroupDoYouTrackWeight);
         radioTrackYes = findViewById(R.id.radioTrackYes);
@@ -40,12 +52,12 @@ public class WeightQuestionsActivity extends Activity {
         weightQuestionsLayout = findViewById(R.id.weightQuestionsLayout);
         radioGroupWeightType = findViewById(R.id.radioGroupWeightType);
         radioGroupGender = findViewById(R.id.radioGroupGender);
-        editAge = findViewById(R.id.editAge);
         editHeight = findViewById(R.id.editHeight);
         editWeight = findViewById(R.id.editWeight);
         editGoalWeight = findViewById(R.id.editGoalWeight); // New field
         editExerciseFrequency = findViewById(R.id.editExerciseFrequency);
-        buttonFinish = findViewById(R.id.buttonFinish);
+        buttonNext = findViewById(R.id.buttonNext);
+
 
         db = database.getInstance(getApplicationContext());
 
@@ -59,7 +71,7 @@ public class WeightQuestionsActivity extends Activity {
             }
         });
 
-        buttonFinish.setOnClickListener(v -> {
+        buttonNext.setOnClickListener(v -> {
             int selectedId = radioGroupDoYouTrackWeight.getCheckedRadioButtonId();
 
             if (selectedId == -1) {
@@ -122,14 +134,6 @@ public class WeightQuestionsActivity extends Activity {
             Intent intent = new Intent(WeightQuestionsActivity.this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
-        });
-        Button buttonBack = findViewById(R.id.buttonBack);
-        buttonBack.setOnClickListener(v -> {
-            // Go back to SmokingQuestionsActivity and pass the currentUser
-            Intent intent = new Intent(this, DrinkingQuestionsActivity.class);
-            intent.putExtra("currentUser", currentUser);
-            startActivity(intent);
-            finish(); // Close the current activity (DrinkingQuestionsActivity)
         });
     }
 }

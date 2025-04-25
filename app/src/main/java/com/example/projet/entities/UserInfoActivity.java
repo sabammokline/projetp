@@ -2,7 +2,10 @@ package com.example.projet.entities;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.WindowInsets;
+import android.view.WindowInsetsController;
 import android.widget.*;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,6 +37,12 @@ public class UserInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info);
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+
+
 
         db = database.getInstance(getApplicationContext());
 

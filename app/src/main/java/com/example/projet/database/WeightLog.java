@@ -51,4 +51,13 @@ public class WeightLog {
     public void setWeight(float weight) {
         this.weight = weight;
     }
+
+    public WeightLog(){
+    }
+    public WeightLog(long id, long userId, String date, float weight){
+        this.id = id;
+        this.userId = userId;
+        this.date = date;
+        this.weight = weight;
+    }
 }

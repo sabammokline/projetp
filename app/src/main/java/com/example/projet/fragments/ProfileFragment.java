@@ -1,5 +1,6 @@
 package com.example.projet.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,12 +10,16 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.room.Insert;
 
 import com.example.projet.R;
 import com.example.projet.database.User;
 import com.example.projet.database.database;
+import com.example.projet.ui.EditActivity;
+import com.example.projet.ui.SmokingQuestionsActivity;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -44,13 +49,27 @@ public class ProfileFragment extends Fragment {
         loadUserData();
 
         btnEditTracking.setOnClickListener(v -> {
+            switchToProfileEdit();
 
         });
 
         btnManageProfile.setOnClickListener(v -> {
+            switchToManageProfile();
         });
 
         return view;
+    }
+
+    private void switchToProfileEdit(){
+        Intent intent = new Intent(requireActivity(), EditActivity.class);
+        startActivity(intent);
+        requireActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
+    private void switchToManageProfile(){
+        Intent intent = new Intent(requireActivity(), EditActivity.class);
+        startActivity(intent);
+        requireActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
     private void loadUserData() {

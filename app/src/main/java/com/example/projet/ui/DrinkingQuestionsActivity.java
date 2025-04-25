@@ -2,12 +2,19 @@ package com.example.projet.ui;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowInsets;
+import android.view.WindowInsetsController;
+import android.view.WindowManager;
 import android.widget.*;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.room.Room;
 
 import com.example.projet.R;
@@ -16,7 +23,7 @@ import com.example.projet.database.database;
 import com.example.projet.dao.UserDao;
 import com.google.android.material.slider.Slider;
 
-public class DrinkingQuestionsActivity extends Activity {
+public class DrinkingQuestionsActivity extends AppCompatActivity {
 
     private RadioGroup radioGroupDoYouDrink;
     private RadioButton radioDrinkYes, radioDrinkNo;
@@ -32,6 +39,12 @@ public class DrinkingQuestionsActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.drinkingquestions);
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+
+
 
 
         // Get the User object from the intent

@@ -14,7 +14,7 @@ import com.example.projet.dao.WeightLogDao;
 
 
 @Database(entities = {User.class, CigaretteLog.class,
-        DrinkingLog.class,WeightLog.class,Post.class}, version = 10)
+        DrinkingLog.class,WeightLog.class,Post.class}, version = 11)
 public abstract class database extends RoomDatabase {
 
     private static volatile database INSTANCE;

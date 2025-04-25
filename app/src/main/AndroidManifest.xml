@@ -25,10 +25,12 @@
 
         <!-- Other Activities -->
         <activity android:name=".entities.UserInfoActivity" />
+        <activity android:name=".chat.SelectContactActivity" />
         <activity android:name=".ui.CertSpecialityActivity" />
         <activity android:name=".ui.SmokingQuestionsActivity" />
         <activity android:name=".ui.DrinkingQuestionsActivity" />
         <activity android:name=".ui.WeightQuestionsActivity" />
+        <activity android:name=".ui.EditActivity" />
         <activity android:name=".chat.GeneralChatActivity" />
         <activity android:name=".chat.PrivateChatActivity" />
         <activity android:name=".chat.BotChatActivity" />

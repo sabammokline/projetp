@@ -1,7 +1,14 @@
 package com.example.projet.chat;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
+import android.os.Build;
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowInsets;
+import android.view.WindowInsetsController;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -19,7 +26,12 @@ public class PrivateChatActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.privatechat); // or activity_bot_chat
+        setContentView(R.layout.privatechat);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+
+
 
         messageContainer = findViewById(R.id.messageContainer);
         messageInput = findViewById(R.id.messageInput);

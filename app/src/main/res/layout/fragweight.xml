@@ -28,9 +28,9 @@
                 android:id="@+id/titleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cigarette Tracker"
+                android:text="Weight Tracker"
                 android:textSize="26sp"
-                android:textColor="@color/a7mer"
+                android:textColor="@color/bonifete7"
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal" />
 
@@ -57,8 +57,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/smokeChart"
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/weightChar"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:layout_margin="8dp"
@@ -86,7 +86,7 @@
                 android:id="@+id/inputLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Number of cigarettes today:"
+                android:text="Enter your current weight:"
                 android:textSize="16sp"
                 android:textColor="@color/black" />
 
@@ -97,11 +97,11 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <EditText
-                    android:id="@+id/cigaretteInput"
+                    android:id="@+id/WeightInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
-                    android:hint="Enter number"
+                    android:hint="Enter Weight"
                     android:drawablePadding="8dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -111,10 +111,10 @@
                 android:layout_height="wrap_content"
                 android:text="Save Log"
                 android:textSize="16sp"
+                android:backgroundTint="@color/bonifete7"
                 android:layout_marginTop="16dp"
                 android:padding="12dp"
                 app:cornerRadius="8dp"
-                android:backgroundTint="@color/a7mer"
                 app:iconGravity="textStart" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

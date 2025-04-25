@@ -1,5 +1,7 @@
 package com.example.projet.database;
 
+import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -51,4 +53,13 @@ public class DrinkingLog {
     public void setBottlesConsumed(int beersConsumed) {
         this.BottlesConsumed = beersConsumed;
     }
+    public DrinkingLog(){
+    }
+    public DrinkingLog(int id, long userId, String date, int bottlesConsumed){
+        this.id = id;
+        this.userId = userId;
+        this.date = date;
+        this.BottlesConsumed = bottlesConsumed;
+    }
+
 }

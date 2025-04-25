@@ -17,6 +17,8 @@
 
         <!-- SMOKING SECTION -->
         <androidx.cardview.widget.CardView
+            android:id="@+id/smokeSection"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -69,6 +71,7 @@
                     android:id="@+id/smoking_section_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     android:orientation="vertical"
                     android:gravity="center_horizontal"
                     android:padding="16dp">
@@ -115,7 +118,7 @@
                                 android:id="@+id/quit_goal_label"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Time Remaining to Quit Goal"
+                                android:text="Last time you have smoked"
                                 android:textStyle="bold"
                                 android:textColor="@color/a7mer"
                                 android:textSize="16sp"
@@ -377,6 +380,8 @@
 
         <!-- DRINKING SECTION -->
         <androidx.cardview.widget.CardView
+            android:id="@+id/drinkingSection"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -577,6 +582,8 @@
 
         <!-- WEIGHT SECTION -->
         <androidx.cardview.widget.CardView
+            android:id="@+id/weightSection"
+            android:visibility="visible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"

@@ -3,6 +3,7 @@ package com.example.projet;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -12,14 +13,17 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.projet.fragments.DrinkingFragment;
 import com.example.projet.fragments.FeedFragment;
 import com.example.projet.fragments.HomeFragment;
 import com.example.projet.fragments.MessageFragment;
 import com.example.projet.fragments.ProfileFragment;
 import com.example.projet.entities.UserInfoActivity;
+import com.example.projet.fragments.SmokingFragment;
+import com.example.projet.fragments.WeightFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener {
 
     private ViewPager2 viewPager;
     private BottomNavigationView bottomNavigationView;
@@ -36,39 +40,34 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, UserInfoActivity.class);
             startActivity(intent);
             finish();
-
         }
 
         setContentView(R.layout.activity_main);
 
-        // Initialize the ViewPager and BottomNavigationView
         viewPager = findViewById(R.id.viewPager);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
-        // Set up the ViewPager adapter with the fragments
         ViewPagerAdapter adapter = new ViewPagerAdapter(this);
         viewPager.setAdapter(adapter);
 
         // Set up the BottomNavigationView listener
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if (item.getItemId() == R.id.nav_home) {
-                    viewPager.setCurrentItem(0, false); // Set the current page to Home
-                    return true;
-                } else if (item.getItemId() == R.id.nav_feed) {
-                    viewPager.setCurrentItem(1, false); // Set the current page to Feed
-                    return true;
-                } else if (item.getItemId() == R.id.nav_message) {
-                    viewPager.setCurrentItem(2, false); // Set the current page to Message
-                    return true;
-                } else if (item.getItemId() == R.id.nav_profile) {
-                    viewPager.setCurrentItem(3, false); // Set the current page to Profile
-                    return true;
-                }
-                return false;
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.nav_home) {
+                viewPager.setCurrentItem(0, false);
+                return true;
+            } else if (item.getItemId() == R.id.nav_feed) {
+                viewPager.setCurrentItem(1, false);
+                return true;
+            } else if (item.getItemId() == R.id.nav_message) {
+                viewPager.setCurrentItem(2, false);
+                return true;
+            } else if (item.getItemId() == R.id.nav_profile) {
+                viewPager.setCurrentItem(3, false);
+                return true;
             }
+            return false;
         });
+
 
         // Synchronize ViewPager with BottomNavigationView
         viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
@@ -91,7 +90,25 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
 
+    // Implement the interface method to handle fragment switch
+    @Override
+    public void onSmokingFragmentSelected() {
+        // Switch to the SmokingFragment (assuming it's at position 1)
+        Log.wtf("e", "heree");
+        viewPager.setCurrentItem(4, false);  // Adjust this according to the actual position of the SmokingFragment
+    }
+
+
+    public void onDrinkingFragmentSelected() {
+        Log.wtf("e", "heree");
+        viewPager.setCurrentItem(5, false);  // Adjust this according to the actual position of the SmokingFragment
+    }
+
+    @Override
+    public void onWeightFragmentSelected() {
+        viewPager.setCurrentItem(6, false);
     }
 
     // ViewPager Adapter class to manage fragments
@@ -113,6 +130,12 @@ public class MainActivity extends AppCompatActivity {
                     return new MessageFragment();
                 case 3:
                     return new ProfileFragment();
+                case 4:
+                    return new SmokingFragment();
+                case 5:
+                    return new DrinkingFragment();
+                case 6:
+                    return new WeightFragment();
                 default:
                     return new HomeFragment(); // Default case
             }
@@ -120,7 +143,8 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public int getItemCount() {
-            return 4; // Total number of sections (4)
+            return 7; // Total number of sections (4)
         }
     }
 }
+

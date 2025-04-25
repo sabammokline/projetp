@@ -1,9 +1,21 @@
 package com.example.projet.database;
 
 
+import android.content.Context;
+import android.icu.text.SimpleDateFormat;
+import android.util.Log;
+import android.view.View;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.Room;
+
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 
 import com.example.projet.entities.Login;
@@ -233,6 +245,55 @@ public class User extends Login  {
     public int getQuitTime(){
         return 0;
 
+    }
+
+    public int getYearsSmoked() {
+        try {
+            // Define the date format of the debutDate (make sure it matches the format of the input string)
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+            // Parse the debutDate string into a Date object
+            Date debutDate = sdf.parse(this.debutDate); // Assuming debutDate is a member variable containing the start date
+
+            // Get the current date
+            Date currentDate = new Date();
+
+            // Calculate the difference in milliseconds
+            long diffMillis = currentDate.getTime() - debutDate.getTime();
+
+            // Convert the difference from milliseconds to years
+            long diffYears = TimeUnit.MILLISECONDS.toDays(diffMillis) / 365; // Approximation of years
+
+            return (int) diffYears;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0; // Return 0 if there's an error with parsing or calculating
+        }
+    }
+    public int getCigarettesAvoidedCount(Context context){
+        database db = Room.databaseBuilder(context, database.class, "user_database")
+                .allowMainThreadQueries()
+                .build();
+        List<CigaretteLog> logs = db.cigaretteLogDao().getSmokedDays(id, cigarettesPerPack * packsPerDay);
+        int cigsAvoided = 0;
+        for (CigaretteLog log : logs){
+            cigsAvoided += ((cigarettesPerPack * packsPerDay) - log.getCigarettesSmoked());
+        }
+
+        return cigsAvoided;
+    }
+
+
+    public double getMoneySaved(Context context){
+        int avoidedCigs = getCigarettesAvoidedCount(context);
+
+        return avoidedCigs * cigaretteCost;
+    }
+
+    public int getTimeWonBack(Context context){
+        int avoidedCigs = getCigarettesAvoidedCount(context);
+
+        return avoidedCigs * 11;
     }
 
     @Override

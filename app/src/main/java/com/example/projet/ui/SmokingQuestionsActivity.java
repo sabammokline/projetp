@@ -2,9 +2,12 @@ package com.example.projet.ui;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowInsets;
+import android.view.WindowInsetsController;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
@@ -30,6 +33,12 @@ public class SmokingQuestionsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.smokingquestions);
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+
+
 
         // Initialize Room database
         db = Room.databaseBuilder(getApplicationContext(), database.class, "health-db")

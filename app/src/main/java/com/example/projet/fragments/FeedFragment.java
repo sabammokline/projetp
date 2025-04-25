@@ -58,7 +58,7 @@ public class FeedFragment extends Fragment {
         db = Room.databaseBuilder(
                 requireContext().getApplicationContext(),
                 database.class,
-                "health-app-db"
+                "user_database"
         ).allowMainThreadQueries().build();
 
         initViews(view);
